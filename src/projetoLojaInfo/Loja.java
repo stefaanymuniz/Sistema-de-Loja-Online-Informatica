@@ -19,8 +19,8 @@ private List<Venda> historicoDeVendas;
  public Loja() {
      this.estoque = new HashMap<>();
      this.carrinhoDeCompras = new ArrayList<>();
-     this.usuariosCadastrados = new HashMap<>(); // Nova linha
-     this.historicoDeVendas = new ArrayList<>(); // Nova linha
+     this.usuariosCadastrados = new HashMap<>(); 
+     this.historicoDeVendas = new ArrayList<>(); 
      inicializarEstoque();
  }
 
@@ -38,6 +38,7 @@ public boolean cadastrarUsuario(String nome, String cpf, String senha) {
 
 // Método para autenticar um usuário
 public Usuario fazerLogin(String cpf, String senha) {
+    // Chamando o método Get passando o CPF (String) para o HashMap retornar um usuário
     Usuario usuario = usuariosCadastrados.get(cpf);
     if (usuario != null && usuario.verificarSenha(senha)) {
         System.out.println("Login bem-sucedido! Bem-vindo(a), " + usuario.getNome() + ".");
