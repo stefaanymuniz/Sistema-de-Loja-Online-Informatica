@@ -7,7 +7,7 @@ public class Usuario {
     private static long contadorId = 1;
     private long id;
     private String nome;
-    private String cpf;
+    private String cpf; // chave no mapa de usuários
     private String senha;
 
 
@@ -29,6 +29,7 @@ public class Usuario {
     }
 
     @Override
+    // Representação em String do objeto Usuario
     public String toString() {
         return "Usuário: " + nome + " | CPF: " + cpf;
     }
