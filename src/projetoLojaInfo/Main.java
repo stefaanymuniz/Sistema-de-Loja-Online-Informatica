@@ -6,6 +6,7 @@ import java.util.Scanner;
 
 public class Main {
 
+//ponto de entrada de dados e a interface do usuário
  public static void main(String[] args) {
     Loja minhaLoja = new Loja();
     Scanner scanner = new Scanner(System.in);
@@ -115,6 +116,7 @@ public class Main {
          return;
      }
 
+     //lista ao usuário de forma ordenada
      for (int i = 0; i < produtos.size(); i++) {
          System.out.printf("%d. %s%n", (i + 1), produtos.get(i).getNome());
      }
@@ -122,6 +124,7 @@ public class Main {
      System.out.print("Digite o número do produto: ");
      int escolha = scanner.nextInt();
      
+     //valida o num e add produto ao carrinho
      if (escolha > 0 && escolha <= produtos.size()) {
          Produto produtoEscolhido = produtos.get(escolha - 1);
          loja.adicionarAoCarrinho(produtoEscolhido);

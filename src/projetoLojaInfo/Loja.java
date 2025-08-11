@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-
+//gerenciamento de dados
 public class Loja {
 
 private Map<Produto, Integer> estoque;
@@ -61,7 +61,9 @@ public void exibirHistoricoDeVendas() {
     System.out.println("------------------------------------");
 }
 
+
  private void inicializarEstoque() {
+    //adição de produtos e quant. ao mapa estoque
 	 estoque.put(new Produto("NB001", "Notebook Dell XPS 15", 8500.00, "Computadores"), 15);
      estoque.put(new Produto("MNT005", "Monitor Gamer LG UltraGear", 1800.00, "Periféricos"), 20);
      estoque.put(new Produto("RT010", "Roteador Wi-Fi TP-Link Archer C6", 350.00, "Redes e Conectividade"), 30);
@@ -78,6 +80,7 @@ public void exibirHistoricoDeVendas() {
          return;
      }
      
+     //percorre entradas do mapa 
      for (Map.Entry<Produto, Integer> entry : estoque.entrySet()) {
          Produto produto = entry.getKey();
          Integer quantidade = entry.getValue();
@@ -87,7 +90,7 @@ public void exibirHistoricoDeVendas() {
  }
 
  public void adicionarAoCarrinho(Produto produto) {
-     
+    //se existe no estoque e sua quant
 	 if (estoque.containsKey(produto) && estoque.get(produto) > 0) {
          carrinhoDeCompras.add(produto);
          System.out.printf("'%s' foi adicionado ao carrinho!%n", produto.getNome());
@@ -103,11 +106,13 @@ public void exibirHistoricoDeVendas() {
 
   public void verCarrinho() {
       System.out.println("\n--- MEU CARRINHO DE COMPRAS ---");
+     
       if (carrinhoDeCompras.isEmpty()) {
           System.out.println("Seu carrinho está vazio.");
       } else {
           double totalParcial = 0.0;
           System.out.println("Itens no carrinho:");
+           //percorre a lista
           for (Produto item : carrinhoDeCompras) {
               System.out.println(" - " + item);
               totalParcial += item.getPreco();
@@ -139,6 +144,7 @@ public void exibirHistoricoDeVendas() {
     
     // Processar a compra
     for (Produto item : carrinhoDeCompras) {
+        //atualização de estoque
         estoque.computeIfPresent(item, (produto, quantidade) -> quantidade - 1);
         total += item.getPreco();
     }
@@ -155,6 +161,7 @@ public void exibirHistoricoDeVendas() {
 }
 
  public void listarCategorias() {
+    //coleções de elementos unicos
      Set<String> categorias = new HashSet<>();
      for (Produto produto : estoque.keySet()) {
          categorias.add(produto.getCategoria());

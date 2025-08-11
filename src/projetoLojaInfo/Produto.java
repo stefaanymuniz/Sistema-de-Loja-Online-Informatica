@@ -42,8 +42,10 @@ public class Produto{
  }
 
  
+ 
  @Override
  public boolean equals(Object o) {
+        //mesma instância na memória 
 	    if (this == o) {
 	        return true;
 	    }
