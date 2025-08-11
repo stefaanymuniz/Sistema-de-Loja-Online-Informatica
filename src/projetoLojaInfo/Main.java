@@ -14,7 +14,11 @@ public class Main {
     while (true) {
         System.out.println("\n--- MENU PRINCIPAL ---");
         System.out.println("1. Acessar Loja");
-        System.out.println("2. Fazer Login");
+        if (usuarioLogado == null) {
+            System.out.println("2. Fazer Login");
+        } else { 
+            System.out.println("2. Logout");
+        }
         System.out.println("3. Cadastrar Novo Usuário");
         System.out.println("4. Painel do Administrador");
         System.out.println("0. Sair");
@@ -33,11 +37,16 @@ public class Main {
                 menuLoja(minhaLoja, usuarioLogado, scanner);
                 break;
             case 2:
-                System.out.print("Digite seu CPF: ");
-                String cpf = scanner.nextLine();
-                System.out.print("Digite sua senha: ");
-                String senha = scanner.nextLine();
-                usuarioLogado = minhaLoja.fazerLogin(cpf, senha);
+                if (usuarioLogado == null) {
+                    System.out.print("Digite seu CPF: ");
+                    String cpf = scanner.nextLine();
+                    System.out.print("Digite sua senha: ");
+                    String senha = scanner.nextLine();
+                    usuarioLogado = minhaLoja.fazerLogin(cpf, senha);
+                } else {
+                    usuarioLogado = null;
+                    System.out.println("Deslogado!");
+                }
                 break;
             case 3:
                 System.out.print("Digite seu nome completo: ");
