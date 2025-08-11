@@ -34,6 +34,7 @@ public class Usuario {
     }
 
     @Override
+    // Garantir que dois objetos Usuario sejam considerados iguais se tiverem o mesmo CPF
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
