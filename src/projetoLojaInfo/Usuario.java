@@ -10,6 +10,7 @@ public class Usuario {
     private String cpf;
     private String senha;
 
+
     public Usuario(String nome, String cpf, String senha) {
         this.id = contadorId++;
         this.nome = nome;
@@ -17,7 +18,7 @@ public class Usuario {
         this.senha = senha;
     }
 
-    
+    // Obter informações do usuário
     public long getId() { return id; }
     public String getNome() { return nome; }
     public String getCpf() { return cpf; }

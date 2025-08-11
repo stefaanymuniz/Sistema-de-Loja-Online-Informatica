@@ -5,16 +5,17 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 public class Venda {
-    private Usuario comprador; 
+    private Usuario comprador; // Atributo do tipo Usuario
     private List<Produto> produtosComprados;
     private double totalCompra;
     private LocalDateTime dataHora;
+
 
     public Venda(Usuario comprador, List<Produto> produtosComprados, double totalCompra) {
         this.comprador = comprador;
         this.produtosComprados = produtosComprados;
         this.totalCompra = totalCompra;
-        this.dataHora = LocalDateTime.now(); 
+        this.dataHora = LocalDateTime.now(); // Inicializa data e hora atual
     }
 
     @Override
@@ -27,6 +28,7 @@ public class Venda {
                 ? "ID Comprador: " + comprador.getId() + " | CPF: " + comprador.getCpf()
                 : "ID Comprador: 0 | Usuário Não Identificado";
 
+        // Lista dos itens comprados
         StringBuilder detalhesProdutos = new StringBuilder();
         for (Produto p : produtosComprados) {
             detalhesProdutos.append("\n    - ").append(p.getNome());
